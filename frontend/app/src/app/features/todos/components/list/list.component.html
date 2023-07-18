@@ -1,0 +1,32 @@
+<ul data-testid="shopping-list" *ngIf="list.length > 0">
+  <li
+    *ngFor="let item of list"
+    class="p-4 border-2 border-black text-black"
+    [ngClass]="{
+      'bg-yellow-400': item.status === 'Later',
+
+      'bg-green-600': item.status === 'Now',
+
+      'bg-orange-500': item.status === 'Waiting',
+
+      'bg-slate-500': item.status === 'Completed'
+    }"
+  >
+    <span class="text-2xl">{{ item.description }}</span>
+
+    <button
+      (click)="cycleTheStatus(item)"
+      class="ml-3 btn btn-sm btn-active btn-accent"
+    >
+      {{ item.status }}
+    </button>
+  </li>
+</ul>
+
+<div
+  *ngIf="list.length === 0"
+  class="alert alert-warning"
+  data-testid="empty-list-alert"
+>
+  <p>No Items in Your List</p>
+</div>

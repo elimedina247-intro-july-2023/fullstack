@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="itemAdded()">
+  <div class="form-control w-full max-w-xs">
+    <label class="label" for="description">
+      <span class="label-text">Description</span>
+    </label>
+
+    <input
+      id="description"
+      type="text"
+      placeholder="Your item"
+      formControlName="description"
+      class="input input-bordered w-full max-w-xs"
+    />
+
+    <div class="alert alert-error" *ngIf="hasError()" data-testid="error-alert">
+      <p>A description is required and needs to be 100 characters or less.</p>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Add To List</button>
+</form>
