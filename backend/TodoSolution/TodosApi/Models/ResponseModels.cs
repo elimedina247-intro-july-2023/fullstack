@@ -1,3 +1,3 @@
 ﻿namespace TodosApi.Models;
 
-public record CollectionResponse<T>(List<T> List);
+public record CollectionResponse<T>(IReadOnlyList<T> List);

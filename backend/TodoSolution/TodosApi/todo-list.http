@@ -1,0 +1,12 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+GET http://localhost:8080/todo-list
+
+
+### Add One
+
+POST http://localhost:8080/todo-list
+Content-Type: application/json 
+
+{
+  "description": "TestTest"
+}

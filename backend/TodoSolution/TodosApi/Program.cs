@@ -1,21 +1,37 @@
+using Marten;
 using System.Text.Json.Serialization;
+using TodosApi;
+using TodosApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()
+builder.Services.AddControllers()//Microsoft stuff for creating instances of controllers, etc.
     .AddJsonOptions(options =>
     { 
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-    }); //Microsoft stuff for creating instances of controllers, etc.
+    }); 
+
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer(); //This is Microsoft stuff for making the endpoints visible to tools.
 builder.Services.AddSwaggerGen(); //The service that uses the one above to translate to OpenAPI
 
 
+var dataConnectionString = builder.Configuration.GetConnectionString("todos") ?? throw new Exception("Need a database connection string");
+Console.WriteLine($"Using the connection string {dataConnectionString}");
+builder.Services.AddMarten(options =>
+{
+    options.Connection(dataConnectionString);
 
+    options.AutoCreateSchemaObjects = Weasel.Core.AutoCreate.All; //Good for development it creates everything.
+});
 //Everything above this line is confirguring "services" in our application.
+builder.Services.AddTransient<IManageTheTodoListCatalog, MartenTodoListCatalog>();
+
 
 var app = builder.Build();
 //This is configuring the "middleware" -This is code that will see the incoming HTTP request 
