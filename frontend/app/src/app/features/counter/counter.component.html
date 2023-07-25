@@ -1,0 +1,17 @@
+<section>
+  <button (click)="decrement()" class="btn btn-accent btn-sm">-</button>
+
+  <span>{{ current() }}</span>
+
+  <button (click)="increment()" class="btn btn-accent btn-sm">+</button>
+  <div>
+    <button
+      [disabled]="current() === 0"
+      (click)="reset()"
+      class="btn btn-warning"
+    >
+      Reset
+    </button>
+  </div>
+  <app-count-by />
+</section>

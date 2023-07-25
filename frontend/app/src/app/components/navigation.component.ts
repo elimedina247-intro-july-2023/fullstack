@@ -14,6 +14,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     <a [routerLinkActive]="['tab-active']" routerLink="todos" class="tab tab-lg"
       >Todos</a
     >
+    <a
+      [routerLinkActive]="['tab-active']"
+      routerLink="counter"
+      class="tab tab-lg"
+      >Counter</a
+    >
     <a [routerLinkActive]="['tab-active']" routerLink="about" class="tab tab-lg"
       >About</a
     >
