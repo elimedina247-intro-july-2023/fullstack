@@ -11,10 +11,8 @@ export const routes: Routes = [
     path: 'about',
     component: AboutComponent,
   },
-
   {
     path: 'todos',
-
     loadChildren: () =>
       import('./features/todos/todos.routes').then(
         (routes) => routes.todosRoutes

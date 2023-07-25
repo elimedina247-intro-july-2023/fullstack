@@ -23,7 +23,6 @@
         "*.css": "tailwindcss"
       },
       "explorer.compactFolders": false,
-      "workbench.tree.indent" : 14,
+      "workbench.tree.indent": 14,
       "editor.formatOnSave": true
-
 }

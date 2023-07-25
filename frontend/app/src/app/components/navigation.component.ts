@@ -4,7 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  template: ` <nav class="tabs tabs-boxed">
+  template: ` <nav class="tabs tabs-boxed mb-4">
     <a
       [routerLinkActive]="['tab-active']"
       routerLink="dashboard"

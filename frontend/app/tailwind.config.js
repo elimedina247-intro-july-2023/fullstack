@@ -15,3 +15,4 @@ module.exports = {
     themes: ["aqua", "cupcake", "cyberpunk"]
   }
 }
+
