@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { CounterEvents, ValidCountByOptions } from './counter.actions';
-import { initial } from 'cypress/types/lodash';
+import { CounterEvents, ValidCountbyOptions } from './counter.actions';
+
 export interface CountState {
   current: number;
-  by: ValidCountByOptions;
+  by: ValidCountbyOptions;
 }
 
 const initialState: CountState = {

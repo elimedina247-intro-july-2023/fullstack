@@ -7,10 +7,10 @@ export const CounterEvents = createActionGroup({
     'Count Incremented': emptyProps(),
     'Count Decremented': emptyProps(),
     'Count Reset': emptyProps(),
-    'Count by Set': props<{ by: ValidCountByOptions }>(),
+    'Count By Set': props<{ by: ValidCountbyOptions }>(),
     'Counter Entered': emptyProps(),
     'Counter Data': props<{ payload: CountState }>(),
   },
 });
 
-export type ValidCountByOptions = 1 | 3 | 5;
+export type ValidCountbyOptions = 1 | 3 | 5;

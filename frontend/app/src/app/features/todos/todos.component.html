@@ -6,5 +6,5 @@
 </section>
 
 <section>
-  <app-list [list]="todoList" (onStatusCycled)="statusChange($event)" />
+  <app-list [list]="todoList()" (onStatusCycled)="statusChange($event)" />
 </section>

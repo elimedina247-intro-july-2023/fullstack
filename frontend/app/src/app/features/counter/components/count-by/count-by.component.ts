@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Store } from '@ngrx/store';
 import {
   CounterEvents,
-  ValidCountByOptions,
+  ValidCountbyOptions,
 } from '../../state/counter.actions';
+import { Store } from '@ngrx/store';
 import { selectCountingBy } from '../../state';
 
 @Component({
@@ -17,7 +17,7 @@ import { selectCountingBy } from '../../state';
 export class CountByComponent {
   store = inject(Store);
   by = this.store.selectSignal(selectCountingBy);
-  setCountBy(by: ValidCountByOptions) {
+  setCountBy(by: ValidCountbyOptions) {
     this.store.dispatch(CounterEvents.countBySet({ by }));
   }
 }

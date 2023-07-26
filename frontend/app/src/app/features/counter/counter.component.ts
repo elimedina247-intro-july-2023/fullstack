@@ -18,6 +18,7 @@ export class CounterComponent {
   constructor(private readonly store: Store) {
     store.dispatch(CounterEvents.counterEntered());
   }
+
   increment() {
     this.store.dispatch(CounterEvents.countIncremented());
   }
@@ -25,6 +26,7 @@ export class CounterComponent {
   decrement() {
     this.store.dispatch(CounterEvents.countDecremented());
   }
+
   reset() {
     this.store.dispatch(CounterEvents.countReset());
   }

@@ -32,11 +32,19 @@ builder.Services.AddMarten(options =>
 //Everything above this line is confirguring "services" in our application.
 builder.Services.AddTransient<IManageTheTodoListCatalog, MartenTodoListCatalog>();
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(pol =>
+    {
+        pol.AllowAnyOrigin();
+        pol.AllowAnyMethod();
+        pol.AllowAnyHeader();
+    });
+});
 var app = builder.Build();
 //This is configuring the "middleware" -This is code that will see the incoming HTTP request 
 //And make a response.
-
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
