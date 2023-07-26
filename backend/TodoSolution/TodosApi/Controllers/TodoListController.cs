@@ -14,6 +14,22 @@ public class TodoListController : ControllerBase
         _todoListCatalog = todoListCatalog;
     }
 
+    [HttpPost("/todo-list-status-change")]
+    public async Task<ActionResult> ChangeTheStatusOf([FromBody] TodoListItemRequestModel request)
+    {
+        TodoListItemResponseModel? response = await _todoListCatalog.ChangeStatusAsync(request);
+        if(response == null)
+        {
+            return BadRequest("No Item with that Id to change status of");
+
+        }
+        else
+        {
+            return Ok(request);
+        }
+        
+    }
+
     [HttpPost("/todo-list")]
     public async Task<ActionResult> AddTodoItem([FromBody]TodoListCreateModel request)
     {
